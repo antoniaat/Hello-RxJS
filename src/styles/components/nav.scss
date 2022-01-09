@@ -1,0 +1,47 @@
+@import "../tools/variables.scss";
+
+.list {
+  margin: 0;
+  padding: 26px;
+  list-style: none;
+  height: 94vh;
+  position: absolute;
+  top: 0;
+  width: 240px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: white;
+
+  &-title {
+    margin: 20px 0 40px 0;
+    font-size: 30px;
+  }
+
+  &-subtitle {
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 125%;
+      height: 1px;
+      background: lightgray;
+      position: absolute;
+      left: -27px;
+      top: 25px;
+    }
+  }
+
+  &-subtitle,
+  &-title {
+    color: $gray-color;
+  }
+
+  &-link {
+    color: $gray-color;
+  }
+
+  &-item {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+}

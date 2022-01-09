@@ -1,0 +1,16 @@
+@import "../tools/variables.scss";
+
+.btn {
+  background: $red-light;
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 22px;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    background: $red-dark;
+  }
+}

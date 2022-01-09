@@ -1,0 +1,32 @@
+@import "../tools/variables.scss";
+
+.page {
+  &-wrapper {
+    height: 100vh;
+    color: white;
+    position: relative;
+    background-color: $gray-color;
+    margin-left: 260px;
+    overflow: hidden;
+  }
+
+  &-logo {
+    max-width: 400px;
+    position: absolute;
+    bottom: 0;
+    right: -23px;
+  }
+
+  .row {
+    padding: 30px;
+  }
+
+  .container {
+    display: block;
+    margin: 40px auto;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+    width: 70%;
+  }
+}
