@@ -57,11 +57,21 @@ export const navigationListData: NavigationList = [
         ]
     },
     {
-        title: 'Transofrmation Operators',
+        title: 'Transformation Operators',
         items: [
             { id: 18, title: 'Merge All & Merge Map', link: '/merge-all' },
             { id: 19, title: 'Switch Map', link: '/switch-map' },
             { id: 20, title: 'Concat Map', link: '/concat-map' },
+            { id: 21, title: 'Exhaust Map', link: '/exhaust-map' },
+            { id: 22, title: 'Catch Error', link: '/catch-error' },
+        ]
+    },
+    {
+        title: 'Combination Operators',
+        items: [
+            { id: 23, title: 'Concat', link: '/concat' },
+            { id: 24, title: 'Merge', link: '/merge' },
+            { id: 25, title: 'Combine Latest', link: '/combine-latest' },
         ]
     }
 ]

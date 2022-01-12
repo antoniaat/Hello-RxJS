@@ -13,6 +13,13 @@ export const MapTo = () => {
 
     return (
         <article className="row">
+            <p>
+                <strong>mapTo</strong> - Emits the given constant value on the output Observable every time the source Observable emits a value.
+            </p>
+            <p>
+                <strong>mapTo('Hi') === map(e =&gt; 'Hi')</strong>
+            </p>
+
             <h2>Subscribing to a button click event</h2>
             <button className="btn" ref={buttonRef}>
                 Click me

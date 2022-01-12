@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { concatMap, fromEvent, interval, take } from "rxjs";
+import { exhaustMap, fromEvent, interval, take } from "rxjs";
 
-export const ConcatMap = () => {
+export const ExhaustMap = () => {
     const buttonRef = useRef(null);
     const interval$ = interval(1000);
 
@@ -9,7 +9,7 @@ export const ConcatMap = () => {
         if (buttonRef.current) {
             const clicks$ = fromEvent(buttonRef.current, 'click')
                 .pipe(
-                    concatMap(() => interval$.pipe(take(3)))
+                    exhaustMap(() => interval$.pipe(take(3)))
                 ).subscribe(console.log);
 
             return () => clicks$.unsubscribe();
@@ -18,7 +18,7 @@ export const ConcatMap = () => {
 
     return (
         <section className='row'>
-            <h1>First come, first served </h1>
+            <h1>Ignores other values until the first inner observable completes</h1>
             <button className="btn" ref={buttonRef}>
                 Click me
             </button>

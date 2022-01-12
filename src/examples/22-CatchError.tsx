@@ -2,7 +2,7 @@ import '../styles/components/search-bar.scss';
 
 import { useEffect, useRef, useState } from "react";
 import { ajax } from 'rxjs/ajax';
-import { distinctUntilChanged, fromEvent, map, pluck, switchMap } from "rxjs";
+import { catchError, debounceTime, distinctUntilChanged, EMPTY, fromEvent, mergeMap, pluck } from "rxjs";
 
 const BASE_URL = 'https://api.openbrewerydb.org/breweries';
 
@@ -10,7 +10,7 @@ export interface Brewery {
     name: string,
 }
 
-export const SwitchMap = () => {
+export const CatchError = () => {
     const searchRef = useRef(null);
     const [searchResults, setSearchResults] = useState<Brewery[]>([]);
 
@@ -20,9 +20,11 @@ export const SwitchMap = () => {
                 .pipe(
                     pluck('target', 'value'),
                     distinctUntilChanged(),
-                    map((e: any) => e.toString()),
-                    switchMap((searchTerm: string) => {
-                        return ajax.getJSON(`${BASE_URL}?by_name=${searchTerm}`);
+                    debounceTime(300),
+                    mergeMap((searchTerm) => {
+                        return ajax.getJSON(`${BASE_URL}?by_name=${searchTerm}`).pipe(
+                            catchError(() => EMPTY)
+                        );
                     }),
                 ).subscribe((res: any) => {
                     setSearchResults(res);

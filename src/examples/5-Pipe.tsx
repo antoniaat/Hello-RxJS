@@ -10,14 +10,17 @@ export const Pipe = () => {
             distinct(),
         );
 
-        // The pipable operator is a function which takes observables as a input and 
-        // it returns another observable (previous observable stays unmodified)
         // source$.subscribe(val => console.log(val));
         res$.subscribe(val => console.log(val));
     }, []);
 
     return (
         <section className="row">
+            <p>
+                The pipable operator is a function which takes observables as a input and
+                it returns another observable (previous observable stays unmodified)
+            </p>
+
             <h2>[6, 6, 6, 7, 8, 9, 10, 12, 12, 12, 14]</h2>
             <ul>
                 <li>
@@ -30,6 +33,8 @@ export const Pipe = () => {
                     Take only the unique numbers
                 </li>
             </ul>
+
+
         </section>
     );
 }

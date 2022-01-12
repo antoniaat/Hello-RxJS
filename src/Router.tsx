@@ -23,6 +23,12 @@ import { MergeAll } from './examples/18-MergeAll';
 import { SwitchMap } from './examples/19-SwitchMap';
 import { ConcatMap } from './examples/20-ConcatMap';
 import { ThrottleTime } from './examples/17-ThrottleTime';
+import { ExhaustMap } from './examples/21-ExhaustMap';
+import { catchError } from 'rxjs';
+import { CatchError } from './examples/22-CatchError';
+import { Concat } from './examples/23-Concat';
+import { Merge } from './examples/24-Merge';
+import { CombineLatest } from './examples/25-CombineLatest';
 
 export const App = () => {
   return (
@@ -49,6 +55,11 @@ export const App = () => {
           <Route path="/merge-all" element={<MergeAll />} />
           <Route path="/switch-map" element={<SwitchMap />} />
           <Route path="/concat-map" element={<ConcatMap />} />
+          <Route path="/exhaust-map" element={<ExhaustMap />} />
+          <Route path="/catch-error" element={<CatchError />} />
+          <Route path="/concat" element={<Concat />} />
+          <Route path="/merge" element={<Merge />} />
+          <Route path="/combine-latest" element={<CombineLatest />} />
         </Routes>
       </Page>
     </Router>

@@ -13,9 +13,7 @@ export const MouseMove = () => {
             delay(900)
          ).subscribe(console.log);
 
-      return () => {
-         mousemove$.unsubscribe();
-      }
+      return () => { mousemove$.unsubscribe() }
    }, []);
 
    return (
