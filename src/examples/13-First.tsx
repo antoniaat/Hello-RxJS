@@ -2,19 +2,15 @@ import { useEffect, useRef } from "react";
 import { first, fromEvent, map, tap } from "rxjs";
 
 interface ClickEvent extends Event {
-    clientX: number;
     clientY: number;
 }
 
 export const First = () => {
     useEffect(() => {
         const click$ = fromEvent(document, 'click').pipe(
-            map((event: Event) => ({
-                x: (event as ClickEvent).clientX,
-                y: (event as ClickEvent).clientY,
-            })),
+            map((event: Event) => ((event as ClickEvent).clientY)),
             tap(console.log),
-            first(({ y }) => y > 500)
+            first((y) => y > 500)
         ).subscribe();
 
         return () => click$.unsubscribe();

@@ -68,13 +68,13 @@ export const MergeAll = () => {
                     debounceTime(400),
                     pluck('target', 'value'),
                     distinctUntilChanged(),
-                    map((item: any) => {
+                    map((searchedVal: any) => {
                         return from(navigationListData).pipe(
                             pluck('items'),
                             map(items => items.map(item => item.title)),
                             scan((acc, val) => acc.concat(val)),
                             map(elements => elements.filter(
-                                el => el.toLowerCase().startsWith(item.toLowerCase())
+                                el => el.toLowerCase().startsWith(searchedVal.toLowerCase())
                             ))
                         );
                     }),

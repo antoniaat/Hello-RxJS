@@ -14,7 +14,7 @@ export const Pluck = () => {
     useEffect(() => {
         const person: Promise<Person> = fetch(endpoint).then(res => res.json());
         const res$ = from(person).pipe(
-            pluck('result', 'prkmkljoperties'),
+            pluck('result', 'properties'),
         );
 
         res$.subscribe((result: any) => {

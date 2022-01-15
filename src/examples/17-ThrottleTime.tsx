@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { debounceTime, distinctUntilChanged, fromEvent, pluck, throttleTime } from "rxjs";
+import {  fromEvent, throttleTime } from "rxjs";
 
 export const ThrottleTime = () => {
     const buttonRef = useRef(null);
@@ -7,9 +7,7 @@ export const ThrottleTime = () => {
     useEffect(() => {
         if (buttonRef.current) {
             const clicks$ = fromEvent(buttonRef.current, 'click')
-                .pipe(
-                    throttleTime(3000)
-                )
+                .pipe(throttleTime(3000))
                 .subscribe(console.log);
 
             return () => clicks$.unsubscribe();

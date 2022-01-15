@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { debounceTime, distinctUntilChanged, fromEvent, pluck, throttleTime } from "rxjs";
+import { debounceTime, distinctUntilChanged, fromEvent, pluck } from "rxjs";
 
 export const DebounceTime = () => {
     const inputRef = useRef(null);
@@ -8,7 +8,7 @@ export const DebounceTime = () => {
         if (inputRef.current) {
             const type$ = fromEvent(inputRef.current, 'input').pipe(
                 pluck('target', 'value'),
-                throttleTime(1000),
+                debounceTime(1000),
                 distinctUntilChanged(),
             ).subscribe(console.log);
 
