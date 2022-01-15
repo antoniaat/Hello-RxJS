@@ -37,3 +37,7 @@ These examples are into a **React** app, so if you want to see how the reactive 
 - `concat`
 - `merge`
 - `combineLatest`
+
+### How the page looks:
+ <img src="https://user-images.githubusercontent.com/20865548/149635215-36d15c64-a33a-4df3-a0ff-d68843f18251.png" width="550"/>
+
